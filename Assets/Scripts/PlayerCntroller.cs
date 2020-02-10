@@ -30,6 +30,10 @@ public class PlayerCntroller : MonoBehaviour
     public GameObject puoseButton;
 
     public GameManager theGameManager;
+
+    public AudioSource jumpSound;
+    public AudioSource deathSound;
+
     void Start()
     {
         myBody = GetComponent<Rigidbody2D>();
@@ -61,6 +65,7 @@ public class PlayerCntroller : MonoBehaviour
             {
                 myBody.velocity = new Vector2(myBody.velocity.x, jumpForce);
                 stopedJumping = false;
+                jumpSound.Play();
             }
             if (canDoubleJump && !grounded)
             {
@@ -68,6 +73,7 @@ public class PlayerCntroller : MonoBehaviour
                 jumpTimeCounter = jumpTime;
                 canDoubleJump = false;
                 stopedJumping = false;
+                jumpSound.Play();
             }
         }
         if (Input.GetKey(KeyCode.Space) || Input.GetMouseButton(0) && !stopedJumping)
@@ -101,6 +107,7 @@ public class PlayerCntroller : MonoBehaviour
             speedIncreaseMilestone = speedIncreaseMilestoneStore;
             speedMilestoneCount =speedMilestoneCountStore;
             moveSpeed=moveSpeedStore;
+            deathSound.Play();
         }
     }
 }

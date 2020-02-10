@@ -6,10 +6,11 @@ public class PickupPoints : MonoBehaviour
 {
     public int scoreToGive;
     ScoreManager theScoreManager;
-
+    AudioSource coinSound;
     void Start()
     {
         theScoreManager = FindObjectOfType<ScoreManager>();
+        coinSound = GameObject.Find("coinSound").GetComponent<AudioSource>();
     }
     void Update()
     {
@@ -21,6 +22,7 @@ public class PickupPoints : MonoBehaviour
         {
             theScoreManager.AddScore(scoreToGive);
             gameObject.SetActive(false);
+            coinSound.Play();
         }
     }
 }
