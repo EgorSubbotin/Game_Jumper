@@ -27,6 +27,8 @@ public class PlayerCntroller : MonoBehaviour
     bool stopedJumping;
     bool canDoubleJump;
 
+    public GameObject puoseButton;
+
     public GameManager theGameManager;
     void Start()
     {
@@ -94,6 +96,7 @@ public class PlayerCntroller : MonoBehaviour
     {
         if (collision.gameObject.tag== "KillBox")
         {
+            puoseButton.SetActive(false);
             theGameManager.RestartGame();
             speedIncreaseMilestone = speedIncreaseMilestoneStore;
             speedMilestoneCount =speedMilestoneCountStore;

@@ -29,7 +29,7 @@ public class GameManager : MonoBehaviour
         // StartCoroutine(RestartGameCo());
     }
     public void RestartButton()
-    {
+    {        
         theDeathMenu.gameObject.SetActive(false);
         platformList = FindObjectsOfType<PlatformDestroy>();
         for (int i = 0; i < platformList.Length; i++)
